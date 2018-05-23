@@ -1,0 +1,653 @@
+/** css **/
+html
+{
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+nav{
+  background: white;
+}
+body
+{
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+section#section_bg
+{
+  border-top: 5px solid #1B36FF;
+}
+section#carousel_header
+{
+  background: #1B36FF;
+  height: 550px !important;
+}
+div.nav-wrapper
+{
+  padding-left: 50px;
+  padding-right: 200px;
+}
+a.brand-logo
+{
+  max-width: 50px;
+  max-height: 50px;
+}
+img#logo
+{
+  height: 50px;
+  width: auto;
+  margin-top: 5px;
+}
+nav#nav_prim
+{
+  background: white;
+  color: black !important;
+}
+a.nav_link
+{
+  color: black !important;
+}
+a.nav_dropdown
+{
+  color: #1B36FF !important;
+  font-size: 13px !important;
+}
+section#section_body
+{
+  
+}
+a
+{
+  cursor: pointer;
+}
+a.white_link
+{
+  color: #1B36FF !important;
+  cursor: pointer;
+}
+div.auth_card
+{
+  width: 80vw;
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+}
+div.auth
+{
+  margin-top:50px;
+}
+/** copied **/
+h5.bold
+{
+  font-weight: 600;
+}
+div.form_margin
+{
+  margin-top: 30px;
+}
+.input-field input[type=text]:focus + label {
+    color: #1B36FF !important;
+}
+.input-field2 input[type=text]:focus + label, textarea:focus + label {
+    color: white !important;
+}
+.input-field input[type=password]:focus + label {
+    color: #1B36FF !important;
+}
+
+.input-field input[type=text]:focus{
+     border-bottom: 1px solid #1B36FF !important;
+     box-shadow: 0 1px 0 0 #1B36FF !important;
+ }
+ .input-field2 input[type=text]:focus, textarea:focus{
+     border-bottom: 1px solid white !important;
+     box-shadow: 0 1px 0 0 white !important;
+ }
+
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid #1B36FF !important;
+     box-shadow: 0 1px 0 0 #1B36FF !important;
+ }
+ .input-field .prefix.active {
+     color: #1B36FF !important;
+ }
+  .input-field2 .prefix.active {
+     color: white !important;
+ }
+ .btn, .btn-large
+ {
+  background: #1B36FF !important;
+ }
+ a.link
+ {
+  color: #1B36FF !important;
+ }
+  /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #1B36FF;
+     box-shadow: 0 1px 0 0 #1B36FF;
+   }
+   .input-field2 input[type=text].valid {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 #1B36FF;
+   }
+     .input-field input[type=password].valid {
+     border-bottom: 1px solid #1B36FF;
+     box-shadow: 0 1px 0 0 #1B36FF;
+   }
+ div.full_card
+ {
+  height: 100% !important;
+  margin-top: 40px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+ }
+ div#mobile_menu_background
+ {
+  background: #1B36FF;
+ }
+ div#mobile_menu_logo
+ {
+
+ }
+ .poll_cta
+ {
+  background: white;
+  border: 2px dashed #F4F5F5;
+  height: 100%;
+  margin-top: 10vh;
+  color: #D7D9DA;
+  margin-right: 20px !important;
+  margin-left: 20px !important;
+  padding-bottom: 40px !important;
+ }
+ .poll_main
+ {
+  background: linear-gradient(rgba(20,20,20, .8),rgba(20,20,20, .8)),url('https://images.unsplash.com/photo-1514843433130-4902cd3b013d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1c3a66806061cc4b1d2667de69cda1bb&auto=format&fit=crop&w=500&q=60');
+  
+ }
+ .poll_content
+ {
+  margin-top: 40px !important;
+ }
+ .margin_offset
+ {
+  padding-top: 10vh;
+  margin:0 auto;
+ }
+ .icon-3x
+ {
+  font-size: 10em;
+ }
+ /** pta forms **/
+input.poll_form,textarea.poll_form
+ {
+  color: white !important;
+  border-bottom: 1px solid white !important;
+ }
+ input.select-dropdown
+ {
+  border: bottom: 1px solid white !important;
+ }
+ .picker__date-display
+ {
+  background: #1B36FF;
+ }
+ div#background_section
+ {
+  background: #1836ff;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+ }
+ div.padd-20
+ {
+  padding-top: 40px !important;
+  color: white;
+ }
+ div.imageCenter:hover
+ {
+  background: #1B36FF !important;
+  z-index: 99999999999 !important;
+ }
+h4.light-b
+{
+  font-weight: 300;
+  font-size: 2em !important;
+}
+input[type=submit].white-btn
+{
+  background: white !important;
+  color: #1B36FF;
+  margin-right: 30px !important;
+}
+  .progressbar {
+      counter-reset: step;
+      margin-top: 40px;
+  }
+  .progressbar li {
+      list-style-type: none;
+      width: 33.33333%;
+      float: left;
+      font-size: 12px;
+      font-weight: 600;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      color: #7d7d7d;
+  }
+  .progressbar li:before {
+      width: 30px;
+      height: 30px;
+      content: counter(step);
+      counter-increment: step;
+      line-height: 30px;
+      border: 2px solid #7d7d7d;
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      background-color: white;
+  }
+  .progressbar li:after {
+      width: 100%;
+      height: 2px;
+      content: '';
+      position: absolute;
+      background-color: #7d7d7d;
+      top: 15px;
+      left: -50%;
+      z-index: -1;
+  }
+  .progressbar li:first-child:after {
+      content: none;
+  }
+  .progressbar li.active {
+      color: green;
+  }
+  .progressbar li.active:before {
+      border-color: #55b776;
+  }
+  .progressbar li.active + li:after {
+      background-color: #55b776;
+  }
+  .card-poll
+  {
+    background: #F5F5F5 !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: -20px !important;
+    box-shadow: none !important;
+  }
+  h6.poll--title
+  {
+    font-size: 18px !important;
+    font-weight: 300;
+  }
+  span.poll--sub
+  {
+    color: #818889 !important;
+    font-size: 1em !important;
+  }
+  div.poll--details
+  {
+    margin-top: 20px;
+  }
+  span.poll--details-icon
+  {
+    font-size: .8em;
+    color: #818889 ;
+  }
+  i.icon-padd
+  {
+    padding-top: 10px !important;
+
+  }
+  .btn--margin-top
+  {
+    margin-top: 20px !important;
+  }
+  div.card--hover:hover
+  {
+    box-shadow: 0px 0px 5px 0px !important;
+    cursor: pointer;
+    transition: box-shadow 1s ease-out;
+  }
+  .tabs .tab a:hover, .tabs .tab a.active
+  {
+    color: #1B36FF !important;
+    opacity: 1 !important;
+  }
+  .tabs li.indicator
+  {
+    background-color: #1B36FF !important;
+    opacity: .5 !important;
+  }
+  .tabs .tab a
+  {
+    color: #1B36FF !important;
+    opacity: .5;
+  }
+  div.tab--content
+  {
+    margin-top: 30px;
+  }
+  span.poll--indi-desc
+  {
+    font-weight: 300;
+    font-size: 1.2em;
+    border-width: .2em;
+    border-left-width: .6em;
+    padding-bottom: 2px;
+  }
+  p.poll--info
+  {
+    font-size: 1.1em;
+  }
+  hr.line-break
+  {
+    width: 50px;
+    float: left;
+    color: #1B36FF;
+    border-bottom: 2px solid #1B36FF;
+  }
+  input.browser-default
+  {
+    height: 40px;
+    border:1px solid #1B36FF;
+    padding-left: 30px;
+  }
+  #h1
+  {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+
+  }
+  .panel {
+    font-size: 1.3em;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+#particles canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.center_carousel
+{
+  position: absolute;
+  top: 50%;
+  z-index: 9999;
+  left: 50%;
+}
+#valign-wrapper
+{
+position: relative;
+min-height: 400px;
+}
+#overlay
+{
+position: absolute;
+z-index: 9999;
+display: flex;
+align-content: center;
+align-items: center;
+
+}
+#header_main-text
+{
+  font-size: 3vw;
+  color: white;
+  font-weight: 700;
+}
+#header_sub-text
+{
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.home-container
+{
+  margin-left: 100px !important;
+}
+.section-header
+{
+  font-weight: 500 !important;
+  float: center !important;
+  padding-top: 40px  !important;
+  margin-top: 40px !important;
+}
+.section-header:before
+{  
+  content:"\00a0\00a0\00a0\00a0\00a0";
+    text-decoration:line-through;
+    color: #1B36FF;
+}
+.section2-li
+{
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  padding-top: 20px !important;
+  opacity: .6;
+}
+.section-li2
+{
+  text-align: justify !important;
+  padding-top: 20px !important;
+  padding-bottom: 30px !important;
+}
+.wed
+{
+  background: #1B36FF !important;
+  color: white !important;
+  transition: background .5s ease-out;
+}
+.nt
+{
+  cursor: pointer !important;
+}
+section.sec3
+{
+  background: #1B36FF;
+  height: 320px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding-top:90px;
+  padding-bottom: 100px;
+
+}
+span.sec3-header
+{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 3vw !important;
+  color: white;
+  font-weight: 500;
+}
+@media only screen and (max-width: 980px) {
+
+   span.sec3-header
+   {
+    font-size: 25px !important;
+    font-weight: 500;
+    padding-top: -20px !important;
+   }
+
+}
+.sec3-little
+{
+  color: white !important;
+}
+p.blog-title
+{
+  color: black;
+  font-size: 20px;
+  padding-left: 10px !important;
+  margin-left: 10px !important;
+  font-weight: 500;
+}
+i.blog-icon
+{
+  padding-left: 10px !important;
+  padding-top: 10px !important;
+}
+.blog-time
+{
+  font-size: 10px;
+  color: #E4E4E4;
+  padding-left: 10px !important;
+}
+.blog-content
+{
+  padding-left: 10px !important;
+}
+.slick-prev, .slick-next
+{
+
+}
+section.sec4
+{
+  margin-bottom: 0px !important;
+}
+.blog-card
+{
+  cursor: pointer;
+}
+/** Media query **/
+.blog-card:hover
+{
+  border:1px solid #1B36FF;
+  box-shadow: 0px 0px 3px 0px;
+  transition: border .5s ease-in;
+}
+.pagination li.active
+{
+  background: #1B36FF !important;
+}
+.side-nav
+{
+  width: 250px !important;
+}
+#blog_feat_img
+{
+  width: 100%;
+  height: 30vh;
+}
+.blog-content
+{
+  padding-top: 40px !important;
+  text-align: justify; 
+}
+.blog-img
+{
+  background-size: center center !important;
+  height: 300px;
+  width: 100% !important;
+  float: center !important;
+  background-position: cover !important;
+  background-repeat: no-repeat !important;
+}
+.blog-poll
+{
+  margin-top: 40px !important;
+}
+.blog-poll--title
+{
+  font-size: 23px !important;
+  font-weight: 500 !important;
+}
+.blog-poll--desc
+{
+  text-align: justify !important;
+}
+.blog--more
+{
+  font-size: 18px !important;
+}
+.blog--comment-header
+{
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 20px !important; 
+  padding-bottom: 20px !important;
+}
+ /* Customize the label (the container) */
+.container11 {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container11 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container11:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container11 input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container11 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container11 .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+} 
+/** shake **/
+.shakeClass{
+   transition: margin 100ms;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Articles | INSTANTLY</title>
+	<!-- all assets files --><link href="img/favicon.ico" rel="icon">
+	<link rel="stylesheet" type="text/css" href="assets/materialize/materialize/css/materialize.css">
+	<link rel="stylesheet" type="text/css" href="assets/custom/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/slick/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="assets/slick/slick/slick-theme.css">
+	
+</head>
+<body style="background: #F5F5F5">
+	<% include includes/navbar %>
+
+	<section style="margin-bottom: 50px">
+		<div class=" ">
+			<center><span id="header_sub-text" class="section-header"><br>Articles </span></center>
+		</div>
+
+		<div class="container" style="margin-top: 50px;">
+			<div class="row articles">
+				<% for (var i = 0; i < articles.length; i++){ %>
+					<div class="col s12 l4 ">
+				    <div class="card wed horizontal nt">
+				      <div class="card-stacked">
+				        <div class="card-content">
+				          <center>
+				          	<i class="medium material-icons">chat_bubble_outline</i>
+				          	<br>
+				          	<span class="section2-li">Title: <%- articles[i]['article_title'] %> </span>
+				          	<br>
+				          	<span class="section2-li">Channel: <%- articles[i]['article_channel'] %> </span><br>
+				          	<span class="section2-li">Author: <%- articles[i]['article_author'] %> </span><br>
+				          	<span class="section2-li">Clicks: <%- articles[i]['article_number_of_clicks'] %> </span><br>
+				          	<span class="section2-li">Likes: <%- articles[i]['article_number_of_likes'] %> </span> <br> <br>
+				          	<span class="section-li2" style="text-align: justify;">Date added: 
+				          		<%- articles[i]['date_added'] %>
+				          	</span><br><br>
+				          	<a href="http://<%- articles[i]['article_url'] %>" class="btn">Read article</a>
+				          	<br><br>
+				          </center>
+				        </div>
+				      </div>
+				    </div>
+				  
+				</div>
+				<% } %>
+			</div>
+		</div>	
+	</section>
+
+	
+
+	<!-- footer section -->
+	<% include includes/footer %>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="assets/slick/slick/slick.js"></script>
+<script type="text/javascript" src="assets/materialize/materialize/js/materialize.js"></script>
+
+<script type="text/javascript" src="assets/custom/style.js"></script>
+<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('bfe927980e5d39ace247', {
+      cluster: 'eu',
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(data.message);
+    });
+  </script>
+</body>
+
+</html>

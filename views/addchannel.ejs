@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Add a channel | INSTANTLY</title>
+	<!-- all assets files --><link href="img/favicon.ico" rel="icon">
+	<link rel="stylesheet" type="text/css" href="assets/materialize/materialize/css/materialize.css">
+	<link rel="stylesheet" type="text/css" href="assets/custom/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="manifest" href="assets/manifest.json">
+</head>
+<body style="background: #F5F5F5">
+	<% include includes/navbar %>
+	<section id="section_body" >
+		<div class="container">
+			<div class="card horizontal" style="height: 100%; margin-top: 70px; margin-bottom: 70px">
+		      <div class="card-stacked">
+		        <div class="card-content">
+		          <h5 class="underscore center-align">Add a new channel</h5>
+
+		         
+		          <div class="form_margin">
+		          	<!-- form input -->
+		          	<div class="row">
+					    <form action="/addchannel" method="post" class="col s12">
+					      <div class="row">
+					        <div class="input-field col s12">
+					          <i class="material-icons prefix">account_circle</i>
+					          <input name="channel_name" id="icon_prefix" type="text" class="validate">
+					          <label for="icon_prefix">Enter the channel name</label>
+					        </div>
+					        
+					        <div class="col s12 " style="margin-top: 40px; margin-bottom: 40px">
+					        <p>
+					        	<button class="waves-effect waves-light btn" style="width: 100%">Add </button>
+					        </p>
+					        </div>
+					      </div>
+					    </form>
+					</div>
+		          </div>
+		          
+		        </div>
+		      </div>
+		    </div>
+		</div>	
+
+
+
+	</section>
+
+	<!-- footer section -->
+	<% include includes/footer %>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="assets/materialize/materialize/js/materialize.js"></script>
+
+<script type="text/javascript" src="assets/custom/style.js"></script>
+</body>
+
+</html>

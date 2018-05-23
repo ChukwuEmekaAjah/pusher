@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Sign up | I_AMVOCAL</title>
+	<!-- all assets files --><link href="img/favicon.ico" rel="icon">
+	<link rel="stylesheet" type="text/css" href="assets/materialize/materialize/css/materialize.css">
+	<link rel="stylesheet" type="text/css" href="assets/custom/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="manifest" href="assets/manifest.json">
+</head>
+<body style="background: #F5F5F5">
+	<% include includes/navbar %>
+	<section id="section_body" >
+		<div class="container">
+			<div class="card" style="height: 100%; margin-top: 70px; margin-bottom: 70px">
+		      <div class="card-stacked">
+		        <div class="card-content">
+		          <h5 class="underscore center-align">Add an article</h5>
+
+		          <!-- alert box -->
+		          <!-- end -->
+		          <div class="form_margin">
+		          	<!-- form input -->
+		          	<div class="row">
+					    <form action="/addarticle" method="post" class="col s12">
+					      <div class="row">
+					        <div class="input-field col s12">
+					          <i class="material-icons prefix">account_circle</i>
+					          <input name="article_title" id="icon_prefix" type="text" class="validate">
+					          <label for="icon_prefix">Enter article title</label>
+					        </div>
+					        <div class="input-field col s12">
+					          <i class="material-icons prefix">account_circle</i>
+					          <input name="article_url" id="icon_prefix" type="text" class="validate">
+					          <label for="icon_prefix">Enter article link</label>
+					        </div>
+					        <div class="input-field col s12">
+					          <i class="material-icons prefix">account_circle</i>
+					          <input name="article_author" id="icon_prefix" type="text" class="validate">
+					          <label for="icon_prefix">Enter article author</label>
+					        </div>
+					        <div class="input-field col s12">
+					            <i class="material-icons prefix">accessibility</i>
+							    <select name="article_channel" >
+							      <option value="" disabled selected>Select related channel</option>
+							      <% for (var i = 0; i < channels.length; i++){ %>
+							      <option value="<%- channels[i] %>"><%- channels[i] %></option>
+							      <% } %>
+							    </select>
+							    <label>Select related channel</label>
+							</div>
+
+					        <div class="input-field col s12">
+					          <i class="material-icons prefix">lock_open</i>
+					          <input name="name" id="icon_telephone" type="text" class="validate">
+					          <label for="icon_telephone">Enter your name (for recognition) </label>
+					        </div>
+
+					        <div class="col s12 " style="margin-top: 40px; margin-bottom: 40px">
+					        <p>
+					        	<button class="waves-effect waves-light btn" style="width: 100%"> Add article</button>
+					        </p>
+					        </div>
+
+					        <div class="col s12" style="padding-top: 40px">
+					        	Don't see your preferred channel? <a class="link" href="/addchannel">Add a channel</a>
+					        </div>
+					      </div>
+					    </form>
+					</div>
+		          </div>
+		          
+		        </div>
+		      </div>
+		    </div>
+		</div>	
+
+
+
+	</section>
+
+	<!-- footer section -->
+	<% include includes/footer %>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="assets/materialize/materialize/js/materialize.js"></script>
+
+<script type="text/javascript" src="assets/custom/style.js"></script>
+</body>
+
+</html>
