@@ -150,5 +150,27 @@ function route(app,mongoose){
 		})
 	})
 
+	app.post('/like',function(req,res){
+		var article_id = req.body.article_id;
+		var data = {'article_number_of_likes':req.body.addition}
+		var cookie_data = Utils.create_cookie(req,res);
+		Utils.save_user(cookie_data,function(){
+			Utils.update_article(article_id, data,function(updated_article){
+				Utils.pusher('article','like',updated_article);
+			})
+		})
+	})
+
+	app.post('/view',function(req,res){
+		var article_id = req.body.article_id;
+		var data = {'article_number_of_clicks': req.body.addition}
+		var cookie_data = Utils.create_cookie(req,res);
+		Utils.save_user(cookie_data,function(){
+			Utils.update_article(article_id, data,function(updated_article){
+				Utils.pusher('article','view',updated_article);
+			})
+		})
+	})
+
 }
 module.exports = route;

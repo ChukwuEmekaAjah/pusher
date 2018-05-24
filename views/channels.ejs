@@ -23,43 +23,44 @@
 
 		<div class="container" style="margin-top: 50px;">
 			<div class="row" id="channels">
+			<% if(channels.length){ %>
 				<% for (var i = 0; i < channels.length; i++){ %>
 					<div class="col s12 l6">
 					    <div class="card wed horizontal" style="background: white;">
 					      <div class="card-stacked">
 					        <div class="card-content">
 					          <center>
-					          	<i class="medium material-icons">account_balance</i>
+					          	<i class="medium material-icons">view_headline</i>
 					          	<br>
 					          	<span class="section2-li"><%- channels[i]['channel_name'] %></span>
 					          	<br><br>
 					          	<div class="row">
-					          		<div class="col s12 l6">
+					          		<div class="col s6 l6">
 									    <div class="card wed horizontal">
 									      <div class="card-stacked">
 									        <div class="card-content">
 									          <center>
-									          	<i class="medium material-icons">chat_bubble_outline</i>
+									          	<i class="medium material-icons">library_books</i>
 									          	<br>
 									          	<span class="section2-li">Number of articles</span><br>
 									          	<span><%- channels[i]['number_of_articles'] %></span>
-									          	<br><br>
+									          	<br>
 									          </center>
 									        </div>
 									      </div>
 									    </div>
-									  
+									 
 									</div>
-					          		<div class="col s12 l6">
+					          		<div class="col s6 l6">
 									    <div class="card wed horizontal">
 									      <div class="card-stacked">
 									        <div class="card-content">
 									          <center>
-									          	<i class="medium material-icons">chat_bubble_outline</i>
+									          	<i class="medium material-icons">loop</i>
 									          	<br>
 									          	<span class="section2-li">Articles added today</span><br>
 									          	<span><%- channels[i]['added_today'] %></span>
-									          	<br><br>
+									          	<br>
 									          </center>
 									        </div>
 									      </div>
@@ -68,28 +69,28 @@
 									</div>
 					          	</div>
 					          	<div class="row">
-					          		<div class="col s12 l6">
+					          		<div class="col s6 l6">
 									    <div class="card wed horizontal">
 									      <div class="card-stacked">
 									        <div class="card-content">
 									          <center>
-									          	<i class="medium material-icons">chat_bubble_outline</i>
+									          	<i class="medium material-icons">remove_red_eye</i>
 									          	<br>
 									          	<span class="section2-li">Number of channel article views</span><br>
 									          	<span><%- channels[i]['number_of_clicks'] %></span>
-									          	<br><br>
+									          	<br>
 									          </center>
 									        </div>
 									      </div>
 									    </div>
 									  
 									</div>
-					          		<div class="col s12 l6">
+					          		<div class="col s6 l6">
 									    <div class="card wed horizontal ">
 									      <div class="card-stacked">
 									        <div class="card-content">
 									          <center>
-									          	<i class="medium material-icons">chat_bubble_outline</i>
+									          	<i class="medium material-icons">access_time</i>
 									          	<br>
 									          	<span class="section2-li">Date channel was added</span><br>
 									          	<span><%- channels[i]['channel_date_added'] %></span>
@@ -102,7 +103,7 @@
 									</div>
 					          	</div>
 					          	<br><br>
-					          	<a href="/channels?channel=<%- channels[i]['channel_name'] %>" class="btn">View channel</a>
+					          	<a href="/channels?channel=<%- channels[i]['channel_name'] %>" class="btn">View articles</a>
 					          </center>
 					        </div>
 					      </div>
@@ -110,6 +111,28 @@
 					  
 					</div>
 				<% } %>
+			<% } %>
+			<% if(!channels.length) { %>
+				<div class="row">
+	          		<div class="col s12 l12">
+					    <div class="card wed horizontal">
+					      <div class="card-stacked">
+					        <div class="card-content">
+					          <center>
+					          	<i class="medium material-icons">notifications_off</i>
+					          	<br>
+					          	</span><br>
+					          	<span>There is no channel in our database for the time being... </span>
+					          	<br><br>
+					          </center>
+					        </div>
+					      </div>
+					    </div>
+					  
+					</div>
+	          		
+	          	</div>
+			<% } %>
 			</div>
 		</div>	
 	</section>

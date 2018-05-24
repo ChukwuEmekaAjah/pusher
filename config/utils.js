@@ -174,7 +174,18 @@ function Utils(){
 	}
 
 	function update_article(article_id,data,return_value){
-		console.log(article_id);
+		Article.findOne({'article_id':article_id},function(err,found_article){
+			if(err)
+				throw err;
+			var property = Object.keys(data)[0];
+			var value = Number(data[property]) == 1 || Number(data[property]) == -1 ? Number(data[property]) : 0;
+			found_article[property] += value;
+			found_article.save(function(err,updated_article){
+				if(err)
+					throw err;
+				return_value(updated_article);
+			})
+		})
 	}
 
 	return {

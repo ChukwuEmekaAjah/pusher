@@ -9,6 +9,7 @@ var session      = require('express-session');
 var path = require('path')
 var port     = process.env.PORT || 8080;
 var dbUrl = 'mongodb://ajahso4:CRUCIBLE96ajah@ds163494.mlab.com:63494/iamvocal' || 'mongodb://127.0.0.1/pusherapp';
+//var dbUrl = 'mongodb://127.0.0.1/pusherapp';
 mongoose.connect(dbUrl)
 // set up our express application
 app.use(express.static('public'))
