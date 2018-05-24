@@ -99,30 +99,46 @@ function route(app,mongoose){
 		// number of articles in the channel
 		// number of articles added today
 		// date the channel was created.
-		var cookie_data = Utils.create_cookie(req,res);
-		Utils.save_user(cookie_data,function(){
-			Utils.get_channels(function(channels){
+		if(req.query.channel){
+			var cookie_data = Utils.create_cookie(req,res);
+			Utils.save_user(cookie_data,function(){
 				Utils.get_articles(function(articles){
-					var mapped_channels = channels.map(function(channel){
-						return {'channel_date_added':channel['channel_date_added'], 'channel_name':channel['channel_name'],'number_of_articles':channel['channel_number_of_articles'],'number_of_clicks':channel['channel_number_of_clicks']};
-					})
-					var final_output = mapped_channels.map(function(channel){
-						var counter = 0;
-						var today = Utils.today();
-						for(var i = 0; i<articles.length; i++){
-							if(articles[i]['article_channel'] == channel['channel_name'] && articles[i]['date_added'] > today ){
-								counter += 1;
-							}
+					var mapped_articles = articles.filter(function(article){
+						if(article['article_channel'] == req.query.channel){
+							return true;
 						}
-						channel['added_today'] = counter;
-						channel['channel_date_added'] = (new Date(channel['channel_date_added'])).toLocaleDateString();
-						console.log(channel['channel_date_added'])
-						return channel
+					})	
+					res.render('articles',{articles:mapped_articles});
+				}) 
+			})
+		}
+		else{
+			var cookie_data = Utils.create_cookie(req,res);
+			Utils.save_user(cookie_data,function(){
+				Utils.get_channels(function(channels){
+					Utils.get_articles(function(articles){
+						var mapped_channels = channels.map(function(channel){
+							return {'channel_date_added':channel['channel_date_added'], 'channel_name':channel['channel_name'],'number_of_articles':channel['channel_number_of_articles'],'number_of_clicks':channel['channel_number_of_clicks']};
+						})
+						var final_output = mapped_channels.map(function(channel){
+							var counter = 0;
+							var today = Utils.today();
+							for(var i = 0; i<articles.length; i++){
+								if(articles[i]['article_channel'] == channel['channel_name'] && articles[i]['date_added'] > today ){
+									counter += 1;
+								}
+							}
+							channel['added_today'] = counter;
+							channel['channel_date_added'] = (new Date(channel['channel_date_added'])).toLocaleDateString();
+							console.log(channel['channel_date_added'])
+							return channel
+						})
+						res.render('channels',{channels:final_output});
 					})
-					res.render('channels',{channels:final_output});
 				})
 			})
-		})
+		}
+		
 	})
 
 	app.get('/articles',function(req,res){

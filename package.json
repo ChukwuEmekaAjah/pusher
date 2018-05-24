@@ -1,5 +1,5 @@
 {
-  "name": "url_shortener",
+  "name": "pusher-comp",
   "engines": {
     "node": "6.9.5"
   },
