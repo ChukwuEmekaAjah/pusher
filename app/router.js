@@ -1,6 +1,6 @@
 var Article = require('../app/models/article');
 var Channel = require('../app/models/channel');
-var User = require('../app/models/user');
+var User = require('../app/models/pushers');
 var Utils = require('../config/utils');
 var crypto = require('crypto');
 var Pusher = require('pusher');
@@ -43,7 +43,9 @@ function route(app,mongoose){
 					var saved_channel = Utils.save_channel(req,function(saved_channel){
 						if(saved_channel){
 							res.redirect('/channels');
-							res.on('finish',Utils.pusher('channel','new'))
+							res.on('finish',function(){
+								Utils.pusher('channel','new',saved_channel);
+							})
 						}
 						else{
 							res.send('there was a problem saving the channel')
@@ -76,7 +78,9 @@ function route(app,mongoose){
 				if(Object.keys(success)){
 					if(success.article_id){
 						res.redirect('/articles');
-						res.on('finish',Utils.pusher('article','new'))
+						res.on('finish',function(){
+							Utils.pusher('article','new',success)
+						})
 					}
 					else{
 						res.send(success['article_exists'])

@@ -1,8 +1,8 @@
 var Channel = require('../app/models/channel');
-var User = require('../app/models/user');
+var User = require('../app/models/pushers');
 var Article = require('../app/models/article');
 var crypto = require('crypto');
-var pusher = require('pusher');
+var Pusher = require('pusher');
 
 
 function Utils(){
@@ -72,7 +72,7 @@ function Utils(){
 			if(err)
 				throw err;
 			if(saved_channel){
-				return_value(true);
+				return_value(saved_channel);
 			}
 			else{
 				return_value(false);
@@ -160,7 +160,7 @@ function Utils(){
 		return time;
 	}
 
-	function pusher(channel,event){
+	function pusher(channel,event,data){
 		var pusher = new Pusher({
 		  appId: '530910',
 		  key: 'bfe927980e5d39ace247',
@@ -169,9 +169,8 @@ function Utils(){
 		  encrypted: true
 		});
 		console.log('we are about to trigger the event to check')
-		pusher.trigger(channel, event,{
-		  "message": "hello world"
-		});
+		console.log(data);
+		pusher.trigger(channel, event,data);
 	}
 
 	function update_article(article_id,data,return_value){
