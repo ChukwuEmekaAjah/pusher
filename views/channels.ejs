@@ -87,8 +87,8 @@
       encrypted: true
     });
 
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
+    var channel = pusher.subscribe('channel');
+    channel.bind('new', function(data) {
       alert(data.message);
     });
   </script>

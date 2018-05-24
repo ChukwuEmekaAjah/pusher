@@ -160,6 +160,20 @@ function Utils(){
 		return time;
 	}
 
+	function pusher(channel,event){
+		var pusher = new Pusher({
+		  appId: '530910',
+		  key: 'bfe927980e5d39ace247',
+		  secret: '128ce4505f92b2fd06fd',
+		  cluster: 'eu',
+		  encrypted: true
+		});
+		console.log('we are about to trigger the event to check')
+		pusher.trigger(channel, event,{
+		  "message": "hello world"
+		});
+	}
+
 	function update_article(article_id,data,return_value){
 		console.log(article_id);
 	}
@@ -176,6 +190,7 @@ function Utils(){
 		update_channel: update_channel,
 		update_article: update_article,
 		today: today,
+		pusher: pusher,
 	};
 }
 

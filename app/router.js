@@ -42,7 +42,8 @@ function route(app,mongoose){
 				else{
 					var saved_channel = Utils.save_channel(req,function(saved_channel){
 						if(saved_channel){
-							res.send(req.body.channel_name);
+							res.redirect('/channels');
+							res.on('finish',Utils.pusher('channel','new'))
 						}
 						else{
 							res.send('there was a problem saving the channel')
@@ -63,6 +64,7 @@ function route(app,mongoose){
 					return channel['channel_name'];
 				});
 				res.render('addarticle',{channels:channels});
+
 			})
 		});
 	});
@@ -73,10 +75,12 @@ function route(app,mongoose){
 			Utils.save_article(req,function(success){
 				if(Object.keys(success)){
 					if(success.article_id){
-						res.send(success.article_id+' that is the article id')
+						res.redirect('/articles');
+						res.on('finish',Utils.pusher('article','new'))
 					}
 					else{
 						res.send(success['article_exists'])
+
 					}
 				}
 				else{
