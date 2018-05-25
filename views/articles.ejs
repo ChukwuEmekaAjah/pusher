@@ -266,7 +266,9 @@
     		elements[element].addEventListener(event,function(e){
     			e.preventDefault();
     			var data = {'article_id':e.target.dataset.articleId, 'addition':e.target.dataset.post};
-    			e.target.dataset.post = String(Number(e.target.dataset.post) * -1);
+    			if(url == '/like'){
+    				e.target.dataset.post = String(Number(e.target.dataset.post) * -1);
+    			}
     			$.ajax({
 				  type: "POST",
 				  url: url,
