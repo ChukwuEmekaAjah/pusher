@@ -3,6 +3,7 @@ var User = require('../app/models/pushers');
 var Article = require('../app/models/article');
 var crypto = require('crypto');
 var Pusher = require('pusher');
+var config = require('../config/config');
 
 
 function Utils(){
@@ -162,11 +163,11 @@ function Utils(){
 
 	function pusher(channel,event,data){
 		var pusher = new Pusher({
-		  appId: '530910',
-		  key: 'bfe927980e5d39ace247',
-		  secret: '128ce4505f92b2fd06fd',
-		  cluster: 'eu',
-		  encrypted: true
+		  appId: config['APP_ID'],
+		  key: config['APP_KEY'],
+		  secret: config['APP_SECRET'],
+		  cluster: config['APP_CLUSTER'],
+		  encrypted: config['APP_ENCRYPTION'],
 		});
 		console.log('we are about to trigger the event to check')
 		console.log(data);

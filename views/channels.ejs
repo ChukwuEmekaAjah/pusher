@@ -24,7 +24,7 @@
 		<div class="container" style="margin-top: 50px;">
 			<div class="row" id="channels">
 			<% if(channels.length){ %>
-				<% for (var i = channels.length;  channels.length >-1; i--){ %>
+				<% for (var i = channels.length - 1; i >= 0; i--){ %>
 					<div class="col s12 l6">
 					    <div class="card wed horizontal" style="background: white;">
 					      <div class="card-stacked">
@@ -169,7 +169,7 @@
 					      <div class="card-stacked">
 					        <div class="card-content">
 					          <center>
-					          	<i class="medium material-icons">account_balance</i>
+					          	<i class="medium material-icons">view_headline</i>
 					          	<br>
 					          	<span class="section2-li">${data['channel_name']}</span>
 					          	<br><br>
@@ -179,10 +179,10 @@
 									      <div class="card-stacked">
 									        <div class="card-content">
 									          <center>
-									          	<i class="medium material-icons">chat_bubble_outline</i>
+									          	<i class="medium material-icons">library_books</i>
 									          	<br>
 									          	<span class="section2-li">Number of articles</span><br>
-									          	<span>${data['number_of_articles']}</span>
+									          	<span>0</span>
 									          	<br><br>
 									          </center>
 									        </div>
@@ -195,10 +195,10 @@
 									      <div class="card-stacked">
 									        <div class="card-content">
 									          <center>
-									          	<i class="medium material-icons">chat_bubble_outline</i>
+									          	<i class="medium material-icons">loop</i>
 									          	<br>
 									          	<span class="section2-li">Articles added today</span><br>
-									          	<span>${data['added_today']}</span>
+									          	<span>0</span>
 									          	<br><br>
 									          </center>
 									        </div>
@@ -213,10 +213,10 @@
 									      <div class="card-stacked">
 									        <div class="card-content">
 									          <center>
-									          	<i class="medium material-icons">chat_bubble_outline</i>
+									          	<i class="medium material-icons">remove_red_eye</i>
 									          	<br>
 									          	<span class="section2-li">Number of channel article views</span><br>
-									          	<span>${data['number_of_clicks']}</span>
+									          	<span>0</span>
 									          	<br><br>
 									          </center>
 									        </div>
@@ -229,7 +229,7 @@
 									      <div class="card-stacked">
 									        <div class="card-content">
 									          <center>
-									          	<i class="medium material-icons">chat_bubble_outline</i>
+									          	<i class="medium material-icons">access_time</i>
 									          	<br>
 									          	<span class="section2-li">Date channel was added</span><br>
 									          	<span> ${data['channel_date_added']} </span>

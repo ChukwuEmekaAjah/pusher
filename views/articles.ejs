@@ -24,7 +24,7 @@
 		<div class="container" style="margin-top: 50px;">
 			<div class="row " id="articles">
 			<% if(articles.length) { %>
-				<% for (var i = articles.length; articles.length > -1; i--){ %>
+				<% for (var i = articles.length-1; i >= 0; i--){ %>
 					<div class="col s12 l4 ">
 				    <div class="card wed horizontal ">
 				      <div class="card-stacked">
@@ -88,20 +88,17 @@
 									</div>
 					          		
 					          	</div>
-				          	<a href="http://<%- articles[i]['article_url'] %>" data-article-id="<%- articles[i]['article_id'] %>" data-post="1" class="btn views">Read article</a>
+				          	<a href="<%- articles[i]['article_url'] %>" data-article-id="<%- articles[i]['article_id'] %>" data-post="1" class="btn views">Read article <span class="badge red" name="<%- articles[i]['article_id'] %>" style="color:white;"><%- articles[i]['article_number_of_clicks'] %><i class="material-icons"  >remove_red_eye</i></span></a>
 				          	<br><br>
+				          	
 				          </center>
 				          <hr>
 				          	<div class="row">
 				          		<center>
-					          		<div class="col l6 s6">
-					          			<button class="btn-floating btn-large waves-effect waves-light " style="background: white"><i class="material-icons views" data-article-id="<%- articles[i]['article_id'] %>" data-post="1" >remove_red_eye</i></button> <br>
-					          			<span class="badge" data-badge-caption="views" name="<%- articles[i]['article_id'] %>" style="color:white;"><%- articles[i]['article_number_of_clicks'] %></span>
-					          		</div>
-					          		<div class="col l6 s6">
+					          		<div class="col l6 s6 push-l3 push-s3">
 					          			<button class="btn-floating btn-large waves-effect waves-light"  style="background: white"><i class="material-icons likes" data-article-id="<%- articles[i]['article_id'] %>" data-post="1" >thumb_up</i></button> <br>
 					          			<center>
-						          			<span class="badge" data-badge-caption="likes" id="<%- articles[i]['article_id'] %>" style="color:white;"><%- articles[i]['article_number_of_likes'] %></span>
+						          			<span class="badge red" data-badge-caption="likes" id="<%- articles[i]['article_id'] %>" style="color:white;"><%- articles[i]['article_number_of_likes'] %></span>
 						          		</center>
 					          		</div>
 				          		</center>
@@ -167,7 +164,7 @@
     });
     channel.bind('view', function(data) {
 		var badge = document.getElementsByName(data['article_id'])[0];
-    	badge.innerHTML = data['article_number_of_clicks'];
+    	badge.innerHTML = data['article_number_of_clicks'] + '<i class="material-icons"  >remove_red_eye</i>';
     });
     channel.bind('new', function(data) {
     	var parent_element = document.getElementById('articles');
@@ -181,26 +178,68 @@
 				          <center>
 				          	<i class="medium material-icons">title</i>
 				          	<br>
-				          	<span class="section2-li">Title: ${data['article_title']} </span>
+				          	<span class="section2-li"> Title </span><br>
+				          	<span > ${data['article_title']} </span>
 				          	<br>
-				          	<span class="section2-li">Channel: ${data['article_channel']} </span><br>
-				          	<span class="section2-li">Author: ${data['article_author']} </span><br>
-				          	<span class="section2-li">Clicks: ${data['article_number_of_clicks']} </span><br>
-				          	<span class="section2-li">Likes: ${data['article_number_of_likes']} </span> <br> <br>
-				          	<span class="section-li2" style="text-align: justify;">Date added: 
-				          		${data['date_added']}
-				          	</span><br><br>
-				          	<a href="http://${data['article_url']}" class="btn views" name="${data['article_id']}" data-article-id="${data['article_id']}" data-post="1">Read article</a>
-				          	<br><br>
+				          	<div class="row">
+				          		<div class="col s6 l6">
+								    <div class="card wed horizontal">
+								      <div class="card-stacked">
+								        <div class="card-content">
+								          <center>
+								          	<i class="medium material-icons">view_headline</i>
+								          	<br>
+								          	<span class="section2-li">Channel</span><br>
+								          	<span> ${data['article_channel']} </span>
+								          	<br><br>
+								          </center>
+								        </div>
+								      </div>
+								    </div>
+								  
+								</div>
+				          		<div class="col s6 l6">
+								    <div class="card wed horizontal ">
+								      <div class="card-stacked">
+								        <div class="card-content">
+								          <center>
+								          	<i class="medium material-icons">person</i>
+								          	<br>
+								          	<span class="section2-li">Author</span><br>
+								          	<span> ${data['article_author']}</span>
+								          	<br><br>
+								          </center>
+								        </div>
+								      </div>
+								    </div>
+								  
+								</div>
+					        </div>
+				          	<div class="row">
+					          		<div class="col s12 l12">
+									    <div class="card wed horizontal">
+									      <div class="card-stacked">
+									        <div class="card-content">
+									          <center>
+									          	<i class="medium material-icons">access_time</i>
+									          	<br>
+									          	<span class="section2-li">Date added</span><br>
+									          	<span>${data['date_added']} </span>
+									          	<br><br>
+									          </center>
+									        </div>
+									      </div>
+									    </div>
+									  
+									</div>
+					          		
+					          	</div>
+				          	<a href="${data['article_url']}" class="btn views" name="${data['article_id']}" data-article-id="${data['article_id']}" data-post="1">Read article <span class="badge red" name="${data['article_id']}" style="color:white;"> ${data['article_number_of_clicks']}<i class="material-icons"  >remove_red_eye</i></span></a><br><br>
 				          </center>
 				          <hr>
 				          	<div class="row">
 				          		<center>
-					          		<div class="col l6 s6">
-					          			<button class="btn-floating btn-large waves-effect waves-light " style="background: white"><i class="material-icons views" data-article-id="${data['article_id']}" data-post="1" >remove_red_eye</i></button> <br>
-					          			<span class="badge" data-badge-caption="views" name="${data['article_id']}" style="color:white;"> ${data['article_number_of_clicks']}</span>
-					          		</div>
-					          		<div class="col l6 s6">
+					          		<div class="col l6 s6 push-l3 push-s3">
 					          			<button class="btn-floating btn-large waves-effect waves-light"  style="background: white"><i class="material-icons likes" data-article-id="${data['article_id']}" data-post="1" >thumb_up</i></button> <br>
 					          			<center>
 						          			<span class="badge" data-badge-caption="likes" id="${data['article_id']}" style="color:white;"> ${data['article_number_of_likes']}</span>
@@ -225,6 +264,7 @@
     	for(var element = 0; element < elements.length; element++){
 
     		elements[element].addEventListener(event,function(e){
+    			e.preventDefault();
     			var data = {'article_id':e.target.dataset.articleId, 'addition':e.target.dataset.post};
     			e.target.dataset.post = String(Number(e.target.dataset.post) * -1);
     			$.ajax({
@@ -233,6 +273,9 @@
 				  data: data,
 				  success: success,
 				});
+    			if(url=='/view'){
+    				window.location = e.target.href;
+    			}
     		})
     	}
     }
